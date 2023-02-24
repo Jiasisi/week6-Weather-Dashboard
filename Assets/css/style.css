@@ -1,0 +1,35 @@
+:root {
+    --blue: #0c3559;
+    --darkblue: #092640;
+    --seablue: #687b8c;
+    --lightseablue: #aab9bf;
+    --light: #f2f2f2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--light);
+    background-color: var(--darkblue);
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+.cities {
+
+}
+
+#day-1,
+#day-2,
+#day-3,
+#day-4,
+#day-5 {
+    color: var(light);
+    background-color: var(--darkblue);
+
+}
+
