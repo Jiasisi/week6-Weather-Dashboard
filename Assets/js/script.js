@@ -46,7 +46,12 @@ var dayfivehumidityEl = document.getElementById('humidity5');
 
 
 
-var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=London&appid={API_key}`
+
+var userInput = document.getElementById('inputCity').value;
+
+   
+
+var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${userInput}&appid=${API_key}`
 
 
     fetch(RequestUrl)
@@ -79,11 +84,11 @@ function searchWeather(cityname) {
 
     var userInput =document.getElementById('inputCity');
 
-    if (cityname === undefined) {
+    if (cityname !== undefined) {
         cityname = document.getElementById('inputCity').value;
     }
 
-    var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q={cityname}&appid={API_key}`
+    var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&appid=${API_key}`
 
 
     fetch(RequestUrl)
