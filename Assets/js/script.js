@@ -47,25 +47,6 @@ var dayfivehumidityEl = document.getElementById('humidity5');
 
 
 
-// var userInput = document.getElementById('inputCity').value;
-
-   
-
-// var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${userInput}&appid=${API_key}`
-
-
-    // fetch(RequestUrl)
-    //    .then (function (response) {
-    //        return response.json();
-//
-//        })
-//        .then (function (data) {
-//            
-//            console.log(data);
-//        });
-
-
-
 
 
 
@@ -85,12 +66,9 @@ submitBtn.addEventListener('click', function(event) {
 
 function searchWeather(cityname) {
 
-//    var userInput = document.getElementById('inputCity');
 
-//    if (cityname === undefined) {
-//        cityname = document.getElementById('inputCity').value;
-//    }
-   
+    var userInput = document.getElementById('inputCity');
+    var cityname= userInput.value;
     var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&appid=${API_key}`
 
 
@@ -101,7 +79,7 @@ function searchWeather(cityname) {
             
         })
         .then (function (data) {
-            userInput.value = '';
+            
             console.log(data);
             
             
