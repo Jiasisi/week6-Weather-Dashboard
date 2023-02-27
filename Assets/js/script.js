@@ -45,7 +45,7 @@ var dayfivewindEl = document.getElementById('wind5');
 var dayfivehumidityEl = document.getElementById('humidity5');
 
 var searchHistory = JSON.parse(localStorage.getItem("history"))
-var results = [...searchHistory]
+const results = [...searchHistory]
 var cityListEl = document.getElementById("city-list")
 
 function addHistoryCity(item) {
