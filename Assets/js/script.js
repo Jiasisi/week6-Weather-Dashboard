@@ -47,22 +47,22 @@ var dayfivehumidityEl = document.getElementById('humidity5');
 
 
 
-var userInput = document.getElementById('inputCity').value;
+// var userInput = document.getElementById('inputCity').value;
 
    
 
-var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${userInput}&appid=${API_key}`
+// var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${userInput}&appid=${API_key}`
 
 
-    fetch(RequestUrl)
-        .then (function (response) {
-            return response.json();
-
-        })
-        .then (function (data) {
-            
-            console.log(data);
-        });
+    // fetch(RequestUrl)
+    //    .then (function (response) {
+    //        return response.json();
+//
+//        })
+//        .then (function (data) {
+//            
+//            console.log(data);
+//        });
 
 
 
@@ -72,33 +72,40 @@ var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${userInput}&ap
 var submitBtn = document.getElementById('searchWeather');
 
 submitBtn.addEventListener('click', function() {
+    
+    var userInput = document.getElementById('inputCity');
+    var cityname= userInput.value;
+    
+    
+    
     searchWeather(cityname);
 
 
 });
 
-
-
-
 function searchWeather(cityname) {
 
-    var userInput =document.getElementById('inputCity');
+//    var userInput = document.getElementById('inputCity');
 
-    if (cityname !== undefined) {
-        cityname = document.getElementById('inputCity').value;
-    }
-
+//    if (cityname === undefined) {
+//        cityname = document.getElementById('inputCity').value;
+//    }
+   
     var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&appid=${API_key}`
 
 
     fetch(RequestUrl)
         .then (function (response) {
+            console.log(response);
             return response.json();
-
+            
         })
         .then (function (data) {
             userInput.value = '';
             console.log(data);
+            
+            
+            
             var city = data.name;
             var date = data.dt;
             var icon = data.weather[0].icon;
