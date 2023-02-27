@@ -67,9 +67,8 @@ submitBtn.addEventListener('click', function(event) {
 function searchWeather(cityname) {
 
 
-    var userInput = document.getElementById('inputCity');
-    var cityname= userInput.value;
-    var RequestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&appid=${API_key}`
+   
+    var RequestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${API_key}&units=imperial`
 
 
     fetch(RequestUrl)
@@ -92,6 +91,8 @@ function searchWeather(cityname) {
             var humidity = data.main.humidity;
 
             console.log(data.coord)
+            var lon = data.coord.lon
+            var lat = data.coord.lon
 
             checkedCities(city);
             displayCheckedCities();
@@ -110,10 +111,35 @@ function searchWeather(cityname) {
 
             humidityEl.textContent = "Humidity: " + humidity + " %";
 
+            if (lat && lon) {
+            var oneCallUrl = 'https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon={lon}&appid=${API_key}';
+
+            console.log(oneCallUrl)
+            fetch(oneCallUrl)
+                .then((data) => {
+                    return data.json();
+                })
+                .then((data) => {
+                    console.log("oneCall data: ", data);
+                })
 
 
 
+            };
 
+
+
+            var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&appid=${API_key}&units=metric'
+            fetch(forecastUrl)
+                .then(function(response) {
+                    return response.json();
+
+                })
+                .then(function(data) {
+                    console.log(data);
+
+
+                })
 
 
         })
