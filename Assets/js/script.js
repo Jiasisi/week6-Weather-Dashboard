@@ -71,8 +71,8 @@ var dayfivehumidityEl = document.getElementById('humidity5');
 
 var submitBtn = document.getElementById('searchWeather');
 
-submitBtn.addEventListener('click', function() {
-    
+submitBtn.addEventListener('click', function(event) {
+    event.preventDefault();
     var userInput = document.getElementById('inputCity');
     var cityname= userInput.value;
     
