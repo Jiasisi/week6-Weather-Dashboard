@@ -19,15 +19,24 @@ h1 {
 
 }
 
-
+h5 {
+    color: var(--light);
+}
 
 #day-1,
 #day-2,
 #day-3,
 #day-4,
 #day-5 {
+    background-color: var(--lightseablue);
+}
+
+
+
+
+.card-body p{
     color: var(light);
-    background-color: var(--darkblue);
+    
 
 }
 
